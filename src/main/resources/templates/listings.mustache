@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anuncios de maquinaria</title>
+</head>
+<body>
+    <h1>Anuncios de maquinaria</h1>
+    <a href="/listing/new">Nuevo anuncio</a>
+    <ul>
+        {{#listings}}
+    <li>
+        <strong>{{title}}</strong> — {{description}}<br>
+        <span>Precio: {{price}} €</span><br>
+        <span>Vendedor: {{owner.username}}</span><br>
+        {{#image}}
+        <img src="{{image}}" width="150" alt="Imagen"><br>
+        {{/image}}
+        <a href="/listing/delete/{{id}}" onclick="return confirm('¿Seguro que quieres borrar?');">Eliminar</a>
+    </li>
+        {{/listings}}
+        {{^listings}}
+        <li>No hay anuncios todavía.</li>
+        {{/listings}}
+    </ul>
+</body>
+</html>
